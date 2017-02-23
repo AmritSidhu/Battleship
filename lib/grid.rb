@@ -1,4 +1,8 @@
+require './ship.rb'
+
 class Grid
+
+  attr_accessor :board, :ships
 
   def initialize
     @board = {
@@ -13,14 +17,11 @@ class Grid
     i: [false, false, false, false, false, false, false, false, false, false],
     j: [false, false, false, false, false, false, false, false, false, false]}
 
-    @ships = {"carrier"    => 5,
-              "battleship" => 4,
-              "sumbarine"  => 3,
-              "patrol"     => 2}
+   @new_ships = Boat.new
   end
 
   def ship_length(user_ship)
-    length = @ships[user_ship]
+    length = @new_ships.ships[user_ship]
   end
 
   def coord_h(input, input2)
@@ -33,7 +34,8 @@ class Grid
       (ship_length(input2)-1).times do
         @board[user_row.to_sym][user_column += 1 ] = true
       end
-    else puts "Invalid"
+    else @board[user_row.to_sym][user_column..9] == true
+      puts "DFDSF"
     end
   end
 
@@ -41,12 +43,12 @@ class Grid
     split_input = input.chars
     user_row = split_input[0].to_s
     user_column = split_input[1].to_i
-    letters = ("#{user_row}"..'j').to_a
+    letter = ("#{user_row}"..'j').to_a
 
     if @board[user_row.to_sym][user_column] == false
       @board[user_row.to_sym][user_column] = true
         (ship_length(input2)).times do
-          @board[letters.shift.to_sym][user_column] = true
+          @board[letter.shift.to_sym][user_column] = true
         end
     else puts "Invalid"
     end
@@ -68,24 +70,6 @@ class Grid
     end
   end
 
-=begin
-  def switch_to_true_v(input, input2)
-    coord_v(input, input2)
-    puts ' 0 1 2 3 4 5 6 7 8 9'
-    @board.each do |key, row|
-      string = ''
-      row.each do |v|
-        if v
-          string += ' x'
-        else
-          string += ' .'
-        end
-      end
-      puts key.to_s + ' ' + string
-    end
-  end
-=end
-
   def counting
     @board.each do |x,y|
       a = y
@@ -93,9 +77,11 @@ class Grid
         a.each do |v|
           b[v] += 1
         end
-      if b["@"] == 15
-        puts "WINNER"
-      end
+        b.each do |k,v|
+          if k == "@" && v == 2
+            puts "WINNER!"
+          end
+        end
     end
   end
 
