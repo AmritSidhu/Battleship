@@ -28,10 +28,10 @@ def carrierP1
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p1_orientation == "h" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    if (p1_coordinate[1].to_i + 5 <= 9) && (p1_orientation == "h") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_h(p1_coordinate, "carrier")
       @game.switch_to_true
-    elsif p1_orientation == "v" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    elsif (letters.include?(p1_coordinate[0].next.next.next.next)) && (p1_orientation == "v") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_v(p1_coordinate, "carrier")
       @game.switch_to_true
     else puts "Retry!"
@@ -48,10 +48,10 @@ def battleshipP1
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p1_orientation == "h" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    if (p1_coordinate[1].to_i + 4 <= 9) && (p1_orientation == "h") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1])) 
       @game.coord_h(p1_coordinate, "battleship")
       @game.switch_to_true
-    elsif p1_orientation == "v" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    elsif (letters.include?(p1_coordinate[0].next.next.next)) && (p1_orientation == "v") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_v(p1_coordinate, "battleship")
       @game.switch_to_true
     else puts "Retry!"
@@ -68,10 +68,10 @@ def sumbarineP1
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p1_orientation == "h" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    if (p1_coordinate[1].to_i + 3 <= 9) && (p1_orientation == "h") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_h(p1_coordinate, "sumbarine")
       @game.switch_to_true
-    elsif p1_orientation == "v" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    elsif (letters.include?(p1_coordinate[0].next.next)) && (p1_orientation == "v") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_v(p1_coordinate, "sumbarine")
       @game.switch_to_true
     else puts "Retry!"
@@ -88,10 +88,10 @@ def patrolP1
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p1_orientation == "h" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    if (p1_coordinate[1].to_i + 2 <= 9) && (p1_orientation == "h") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_h(p1_coordinate, "patrol")
       @game.switch_to_true
-    elsif p1_orientation == "v" && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
+    elsif (letters.include?(p1_coordinate[0].next)) && (p1_orientation == "v") && (letters.include?(p1_coordinate[0]) && numbers.include?(p1_coordinate[1]))
       @game.coord_v(p1_coordinate, "patrol")
       @game.switch_to_true
     else puts "Retry!"
@@ -109,10 +109,10 @@ def carrierP2
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p2_orientation == "h" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    if (p2_coordinate[1].to_i + 5 <= 9) && (p2_orientation == "h") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_h(p2_coordinate, "carrier")
       @game2.switch_to_true
-    elsif p2_orientation == "v" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    elsif (letters.include?(p2_coordinate[0].next.next.next.next)) && (p2_orientation == "v") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_v(p2_coordinate, "carrier")
       @game2.switch_to_true
     else puts "Retry!"
@@ -129,10 +129,10 @@ def battleshipP2
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p2_orientation == "h" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    if (p2_coordinate[1].to_i + 4 <= 9) && (p2_orientation == "h") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_h(p2_coordinate, "battleship")
       @game2.switch_to_true
-    elsif p2_orientation == "v" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    elsif (letters.include?(p2_coordinate[0].next.next.next)) && (p2_orientation == "v") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_v(p2_coordinate, "battleship")
       @game2.switch_to_true
     else puts "Retry!"
@@ -149,10 +149,10 @@ def sumbarineP2
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p2_orientation == "h" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    if (p2_coordinate[1].to_i + 3 <= 9) && (p2_orientation == "h") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_h(p2_coordinate, "sumbarine")
       @game2.switch_to_true
-    elsif p2_orientation == "v" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    elsif (letters.include?(p2_coordinate[0].next.next)) && (p2_orientation == "v") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_v(p2_coordinate, "sumbarine")
       @game2.switch_to_true
     else puts "Retry!"
@@ -169,10 +169,10 @@ def patrolP2
     letters = ("a"..'j').to_a
     numbers = ("0".."10").to_a
 
-    if p2_orientation == "h" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    if (p2_coordinate[1].to_i + 2 <= 9) && (p2_orientation == "h") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_h(p2_coordinate, "patrol")
       @game2.switch_to_true
-    elsif p2_orientation == "v" && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
+    elsif (letters.include?(p2_coordinate[0].next)) && (p2_orientation == "v") && (letters.include?(p2_coordinate[0]) && numbers.include?(p2_coordinate[1]))
       @game2.coord_v(p2_coordinate, "patrol")
       @game2.switch_to_true
     else puts "Retry!"
@@ -199,10 +199,10 @@ def player1
   end
   @game2.switch_to_true_g
 
+  @game2.counting
+
   sleeping
   space
-
-  @game2.counting
 end
 def player2
   puts "Return to player 2"
@@ -222,9 +222,10 @@ def player2
   end
   @game.switch_to_true_g
 
+  @game.counting
+
   sleeping
   space
-  @game.counting
 end
 
 end
@@ -241,6 +242,7 @@ a.carrierP2
 a.battleshipP2
 #a.sumbarineP2
 #a.patrolP2
+a.sleeping
 100.times do
 a.player1
 a.player2

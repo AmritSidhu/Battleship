@@ -34,8 +34,8 @@ class Grid
       (ship_length(input2)-1).times do
         @board[user_row.to_sym][user_column += 1 ] = true
       end
-    else @board[user_row.to_sym][user_column..9] == true
-      puts "DFDSF"
+    elsif @board[user_row.to_sym][user_column] == true
+      puts "Already exists"
     end
   end
 
@@ -79,7 +79,8 @@ class Grid
         end
         b.each do |k,v|
           if k == "@" && v == 2
-            puts "WINNER!"
+            puts "WINNER!"*2000
+            exit
           end
         end
     end
